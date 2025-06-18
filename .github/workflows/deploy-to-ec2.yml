@@ -53,8 +53,8 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-        run: |
-          terraform apply -auto-approve \
-            -var="aws_region=${{ secrets.AWS_REGION }}" \
-            -var="ssh_key_name=terraform-key" \
-            -var="bucket_name=${{ secrets.TF_STATE_BUCKET }}"
+        run: terraform apply -auto-approve \
+         -var="aws_region=${{ secrets.AWS_REGION }}" \
+         -var="ssh_key_name=terraform-key" \
+         -var="ssh_public_key=${{ secrets.SSH_PUBLIC_KEY }}"
+
