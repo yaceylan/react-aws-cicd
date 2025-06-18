@@ -83,6 +83,14 @@ Bei jedem Push auf den `main`-Branch wird automatisch folgendes ausgeführt:
 
 ## Screenshots
 
-- Terraform Apply im Terminal
-- EC2-Instanz in AWS-Konsole
-- Erfolgreicher GitHub Actions-Workflow
+### Erfolgreicher CI/CD-Workflow
+![CI/CD Workflow abgeschlossen](screenshots/terraform-cicd-finished.png)
+
+### Terraform Init
+![Terraform Init](screenshots/terraform%20init.png)
+
+### Terraform Apply
+![Terraform Apply](screenshots/terraform%20apply.png)
+
+### React App im Browser erreichbar
+![React App](screenshots/browser.png)
