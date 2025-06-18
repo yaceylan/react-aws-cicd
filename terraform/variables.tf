@@ -8,11 +8,6 @@ variable "bucket_name" {
   type        = string
 }
 
-variable "dynamodb_table" {
-  description = "Name der DynamoDB-Tabelle für das State Locking"
-  type        = string
-}
-
 variable "ssh_key_name" {
   description = "Name des SSH Key Pairs, das in AWS erstellt wird"
   type        = string
