@@ -94,3 +94,7 @@ Bei jedem Push auf den `main`-Branch wird automatisch folgendes ausgeführt:
 
 ### React App im Browser erreichbar
 ![React App](screenshots/browser.png)
+
+### AWS EC2 Instanz erfolgreich erstellt  
+Die EC2-Instanz `react-app-server` wurde erfolgreich von Terraform bereitgestellt und ist im Status **"running"**.  
+![EC2 Instanz](screenshots/ec2-instances.png)
