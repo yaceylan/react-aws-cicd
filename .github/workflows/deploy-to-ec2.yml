@@ -55,4 +55,18 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve -var="aws_region=${{ secrets.AWS_REGION }}" -var="ssh_key_name=terraform-key" -var="ssh_public_key=${{ secrets.SSH_PUBLIC_KEY }}" -var="bucket_name=${{ secrets.TF_BUCKET_NAME }}"
 
+  deploy_react_app:
+    needs: infra_provision
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: react-build
+          path: dist
 
+      - name: Copy dist to EC2 via SCP
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
+          scp -o StrictHostKeyChecking=no -i private_key.pem -r dist/* ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/
